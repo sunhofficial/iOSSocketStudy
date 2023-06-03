@@ -33,3 +33,11 @@ TCP는 패킷을 받을때마다 ACK를 서버에게 잘받았다고 알려준�
 - 신뢰성이 낮다! 실제 보내느거가 없어질수도 있고 다르게 도착할수도 있어서
 그래서 실시간 스트리밍에 주로 사용한다. 왜냐면 조금 데이터가 유실되도 큰 문제가 없기 때문이다. 
 마찬가지로 음성이나 화상같은 경우도 데이터 일부 유실되어도 음질이나 화질이 떨어질뿐 크게 영향을 주지 않아 사용한다
+--------
+## nodejs server
+3000번포트로 서버를 열어주고 socketio를 연결해주고 message를 받는 소켓을 열어준다. 그리고 클라이언트로부터 메시지를 받으면 일단 그것을 한번 출력해주고 다시 emit 즉 res를 클라이언트에게 보내준다. 소켓통신이 오래동안 이루어지지않으면 disconnect되는데 그때 끝낫어 연결이라는 것을 표시해준다.
+## ios client 
+socketviewmodel을 싱글톤으로 만들어주고 생성동시에 socket과 연결을 해준다.
+그리고 setupSocketEvents()에서 message를 서버로 부터 기다리고 있도록 한다.
+sendMessage함수는 이후 view에서 사용하려고 만들었다.
+처음에 messageLabel에는 아무것도 없다. textfield에 값을 입력하고 엔터를 누르게 되면 sendmessage가 호출되고 server에게 보내게 된다. 그 후 서버에서부터 message가 오면. setupSocketEventhandeler 로 부터 메시지를 맏고 updateMessageLabel로 부터 서버로 부터 온 데이터를 messageLabel에 출력해주게 된다
