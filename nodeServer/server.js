@@ -1,6 +1,3 @@
-//  var app = require('express')();
-//   var http = require('http').Server(app);
-//   var io = require('socket.io')(http); // socket 객체 : io
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');

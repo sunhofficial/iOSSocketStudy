@@ -4,7 +4,6 @@
 //
 //  Created by 235 on 2023/06/03.
 //
-
 import UIKit
 import SnapKit
 class ViewController: UIViewController {
@@ -14,7 +13,6 @@ class ViewController: UIViewController {
         textfield.text = "Server에 데이터를 보내봐요!"
         textfield.textColor = .systemGray2
         textfield.borderStyle = .roundedRect
-//        textfield.clearButtonMode = .whileEditing
         textfield.delegate = self
         return textfield
     }()
@@ -27,7 +25,6 @@ class ViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
         setviewcomponet()
         setupSocketEventHandlers()

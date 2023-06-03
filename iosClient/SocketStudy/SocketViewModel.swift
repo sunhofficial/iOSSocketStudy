@@ -35,12 +35,5 @@ class SocketViewModel : NSObject{
         socket.on(clientEvent: .disconnect) { data, ack in
             print("Socket disconnected")
         }
-         socket.on("message") { data, ack in
-
-             if let message = data.first as? String {
-                 // 수신된 메시지 처리
-                 print("Received message:", message)
-             }
-         }
      }
 }
